@@ -205,7 +205,7 @@ export default function Contact() {
                     {lang === "ar" ? "موقعنا الجغرافي" : "Our Location"}
                   </h3>
                   <p className="text-xs text-corporate/70 mb-2">
-                    {lang === "ar" ? "نحو المستقبل — حي العزيزية، جدة، المملكة العربية السعودية" : "Future-Oriented — Al-Aziziyah, Jeddah, Saudi Arabia"}
+                    {lang === "ar" ? "نحو المستقبل — مكة المكرمة، المملكة العربية السعودية" : "Future-Oriented — Makkah, Saudi Arabia"}
                   </p>
                   <a
                     href="https://www.google.com/maps/place/%D9%86%D8%AD%D9%88+%D8%A7%D9%84%D9%85%D8%B3%D8%AA%D9%82%D8%A8%D9%84%E2%80%AD/@21.4799237,39.8355029,16.25z/data=!4m6!3m5!1s0x15c2033c5bbaba05:0x2bd2112142484629!8m2!3d21.4794847!4d39.8373745!16s%2Fg%2F11vjhvk5t2"
@@ -220,14 +220,14 @@ export default function Contact() {
               </div>
               <div className="aspect-video w-full bg-corporate/5">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3692.5432109876543!2d39.8355029!3d21.4799237!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15c2033c5bbaba05%3A0x2bd2112142484629!2z2KfZhNiv2YTZiiDYqNin2LPYudmK!5e0!3m2!1sen!2ssa!4v1714000000000"
+                  src="https://maps.google.com/maps?q=21.4794847,39.8373745&z=16&output=embed"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title={lang === "ar" ? "موقع مدرسة نحو المستقبل" : "Future-Oriented School Location"}
+                  title={lang === "ar" ? "موقع مدرسة نحو المستقبل - مكة المكرمة" : "Future-Oriented School Location - Makkah"}
                 />
               </div>
             </div>
