@@ -13,6 +13,7 @@ import SuccessScreen from "@/components/site/success-screen";
 import Footer from "@/components/site/footer";
 import WhatsAppButton from "@/components/site/whatsapp-button";
 import Chatbot from "@/components/site/chatbot";
+import ScrollArrows from "@/components/site/scroll-arrows";
 
 type View = "home" | "apply" | "track" | "success" | "chatbot";
 
@@ -128,6 +129,9 @@ export default function HomePage() {
 
       {/* Floating WhatsApp button - visible on all views except chatbot */}
       {view !== "chatbot" && <WhatsAppButton phone="+966 53 209 3435" />}
+
+      {/* Scroll arrows - visible on long pages */}
+      {view === "home" && <ScrollArrows />}
     </div>
   );
 }

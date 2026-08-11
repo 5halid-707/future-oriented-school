@@ -126,7 +126,7 @@ export default function Hero({ onApply, onTrack }: HeroProps) {
           <div className="hidden lg:flex justify-center items-center perspective-1500">
             <div className="relative w-96 h-96 preserve-3d">
               {/* Main image container with 3D depth */}
-              <div className="relative w-full h-full card-3d-tilt">
+              <div className="relative w-full h-full card-3d-tilt z-10">
                 {/* Photo carousel */}
                 {HERO_IMAGES.map((img, i) => (
                   <div
@@ -158,13 +158,13 @@ export default function Hero({ onApply, onTrack }: HeroProps) {
                 <div className="absolute -inset-2 rounded-3xl border-2 border-white/30 pointer-events-none" />
               </div>
 
-              {/* Floating logo badge - bigger and clearer */}
-              <div className="absolute -top-6 -right-6 w-28 h-28 rounded-2xl overflow-hidden ring-4 ring-white shadow-2xl animate-float bg-white">
-                <img src="/school-logo.jpeg" alt={t("brand.name")} className="w-full h-full object-cover" />
+              {/* Floating logo badge - placed OUTSIDE image overlap zone, larger and clearer */}
+              <div className="absolute -top-8 -right-8 z-30 w-32 h-32 rounded-2xl overflow-hidden ring-4 ring-white shadow-2xl bg-white p-1.5">
+                <img src="/school-logo.jpeg" alt={t("brand.name")} className="w-full h-full object-cover rounded-xl" />
               </div>
 
-              {/* Floating accreditation badges */}
-              <div className="absolute -bottom-4 -left-4 bg-emerald-brand text-white text-xs font-bold px-3 py-2 rounded-full shadow-3d-pop animate-float" style={{ animationDelay: "0.5s" }}>
+              {/* Floating accreditation badges - moved to bottom corners */}
+              <div className="absolute -bottom-4 -left-4 z-30 bg-emerald-brand text-white text-xs font-bold px-3 py-2 rounded-full shadow-3d-pop animate-float" style={{ animationDelay: "0.5s" }}>
                 ✓ {lang === "ar" ? "معتمد" : "Accredited"}
               </div>
               <div className="absolute top-1/3 -left-8 bg-kid-yellow text-corporate text-xs font-bold px-3 py-2 rounded-full shadow-3d-pop animate-wiggle">
