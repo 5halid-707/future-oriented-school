@@ -4,8 +4,17 @@ import { useState, useEffect } from "react";
 import { useI18n } from "./i18n";
 import { ChevronLeft, ChevronRight, Sparkles, Quote } from "lucide-react";
 
-// Real photos from Unsplash (free for commercial use, no copyright)
+// Real photos from Unsplash (free for commercial use, no copyright) + kindergarten display image
 const CLASSROOMS = [
+  {
+    src: "/kindergarten-display.jpg",
+    titleAr: "روضتنا الجميلة",
+    titleEn: "Our Beautiful Kindergarten",
+    descAr: "بيئة تعليمية آمنة ومحفّزة، صُمّمت بعناية لتوفّر لطفلك تجربة تعليمية ممتعة ومحفّزة على الإبداع.",
+    descEn: "A safe and stimulating learning environment, carefully designed to provide your child with a fun and creativity-inspiring educational experience.",
+    color: "from-kid-orange to-kid-red",
+    tag: "🏫",
+  },
   {
     src: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1200&q=80&auto=format&fit=crop",
     titleAr: "فصول تفاعلية حديثة",

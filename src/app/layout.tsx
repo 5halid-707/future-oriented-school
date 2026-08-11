@@ -74,6 +74,12 @@ export const metadata: Metadata = {
     shortcut: "/favicon.svg",
     apple: "/school-logo.jpeg",
   },
+  manifest: "/manifest.json",
+  appleWebApp: {
+    capable: true,
+    title: "روضة نحو المستقبل",
+    statusBarStyle: "black-translucent",
+  },
   robots: { index: true, follow: true },
 };
 
@@ -88,6 +94,22 @@ export default function RootLayout({
           <Toaster />
           <SonnerToaster position="top-center" richColors />
         </I18nProvider>
+        {/* Register PWA service worker */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              if ('serviceWorker' in navigator && 'window' in self) {
+                window.addEventListener('load', function() {
+                  navigator.serviceWorker.register('/sw.js').then(function(registration) {
+                    console.log('SW registered:', registration.scope);
+                  }).catch(function(err) {
+                    console.log('SW registration failed:', err);
+                  });
+                });
+              }
+            `,
+          }}
+        />
       </body>
     </html>
   );

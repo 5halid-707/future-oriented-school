@@ -1,33 +1,47 @@
 import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/lib/db";
-import { cookies } from "next/headers";
-
-// Simple session token validation
-function verifyAdminToken(token: string | undefined) {
-  if (!token) return null;
-  try {
-    // token format: userId:email:timestamp:hash
-    const parts = token.split(":");
-    if (parts.length !== 4) return null;
-    const [userId, email, ts] = parts;
-    // Basic validation - in production use JWT
-    return { id: userId, email };
-  } catch {
-    return null;
-  }
-}
-
-function createAdminToken(userId: string, email: string): string {
-  const ts = Date.now();
-  const hash = Buffer.from(`${userId}:${email}:${ts}`).toString("base64");
-  return `${userId}:${email}:${ts}:${hash}`;
-}
+import { rateLimit, sanitizeString, validateEmail, validatePhone, validateFileUpload, logSecurityEvent, RATE_LIMITS } from "@/lib/security";
 
 export async function POST(req: NextRequest) {
   try {
+    // === SECURITY: Rate limiting (5 applications per hour per IP) ===
+    const rateLimitResponse = rateLimit(req, RATE_LIMITS.SUBMIT_APPLICATION);
+    if (rateLimitResponse) {
+      logSecurityEvent({
+        type: "RATE_LIMIT",
+        ip: req.headers.get("x-forwarded-for") || req.headers.get("x-real-ip") || "unknown",
+        details: "Application submission rate limit exceeded",
+      });
+      return rateLimitResponse;
+    }
+
     const body = await req.json();
 
-    // Validate required fields
+    // === SECURITY: Input sanitization (XSS protection) ===
+    const sanitized = {
+      studentNameAr: sanitizeString(body.studentNameAr),
+      studentNameEn: sanitizeString(body.studentNameEn),
+      birthDate: sanitizeString(body.birthDate),
+      gender: body.gender === "male" || body.gender === "female" ? body.gender : "",
+      gradeLevel: sanitizeString(body.gradeLevel),
+      nationality: sanitizeString(body.nationality),
+      parentName: sanitizeString(body.parentName),
+      parentRelation: ["father", "mother", "guardian"].includes(body.parentRelation) ? body.parentRelation : "",
+      parentPhone: sanitizeString(body.parentPhone),
+      parentEmail: sanitizeString(body.parentEmail).toLowerCase(),
+      parentOccupation: sanitizeString(body.parentOccupation),
+      city: sanitizeString(body.city),
+      district: sanitizeString(body.district),
+      streetAddress: sanitizeString(body.streetAddress),
+      medicalHistory: sanitizeString(body.medicalHistory),
+      allergies: sanitizeString(body.allergies),
+      bloodType: sanitizeString(body.bloodType),
+      emergencyContact: sanitizeString(body.emergencyContact),
+      notes: sanitizeString(body.notes),
+      documents: Array.isArray(body.documents) ? body.documents : [],
+    };
+
+    // === SECURITY: Validate required fields ===
     const required = [
       "studentNameAr",
       "birthDate",
@@ -41,7 +55,12 @@ export async function POST(req: NextRequest) {
       "city",
     ];
     for (const field of required) {
-      if (!body[field] || !String(body[field]).trim()) {
+      if (!sanitized[field as keyof typeof sanitized]) {
+        logSecurityEvent({
+          type: "INVALID_INPUT",
+          ip: req.headers.get("x-forwarded-for") || "unknown",
+          details: `Missing required field: ${field}`,
+        });
         return NextResponse.json(
           { error: `Missing required field: ${field}` },
           { status: 400 }
@@ -49,22 +68,38 @@ export async function POST(req: NextRequest) {
       }
     }
 
-    // Email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(body.parentEmail)) {
+    // === SECURITY: Email + phone validation ===
+    if (!validateEmail(sanitized.parentEmail)) {
       return NextResponse.json(
         { error: "Invalid email address" },
         { status: 400 }
       );
     }
-
-    // Phone validation
-    const phoneRegex = /^\+?[0-9\s-]{8,}$/;
-    if (!phoneRegex.test(body.parentPhone)) {
+    if (!validatePhone(sanitized.parentPhone)) {
       return NextResponse.json(
         { error: "Invalid phone number" },
         { status: 400 }
       );
+    }
+
+    // === SECURITY: Validate documents (type + size) ===
+    if (sanitized.documents.length > 0) {
+      for (const doc of sanitized.documents) {
+        if (doc.size) {
+          const validation = validateFileUpload({
+            type: doc.type === "birth" || doc.type === "id" || doc.type === "medical" ? "image/jpeg" : "application/octet-stream",
+            size: doc.size,
+          });
+          if (!validation.valid) {
+            return NextResponse.json(
+              { error: validation.error },
+              { status: 400 }
+            );
+          }
+        }
+        // Sanitize document name
+        doc.name = sanitizeString(doc.name).slice(0, 255);
+      }
     }
 
     // Generate human-readable application ID
@@ -77,26 +112,26 @@ export async function POST(req: NextRequest) {
     const application = await db.application.create({
       data: {
         applicationId,
-        studentNameAr: body.studentNameAr.trim(),
-        studentNameEn: body.studentNameEn?.trim() || null,
-        birthDate: body.birthDate,
-        gender: body.gender,
-        gradeLevel: body.gradeLevel,
-        nationality: body.nationality,
-        parentName: body.parentName.trim(),
-        parentRelation: body.parentRelation,
-        parentPhone: body.parentPhone.trim(),
-        parentEmail: body.parentEmail.trim().toLowerCase(),
-        parentOccupation: body.parentOccupation?.trim() || null,
-        city: body.city.trim(),
-        district: body.district?.trim() || null,
-        streetAddress: body.streetAddress?.trim() || null,
-        medicalHistory: body.medicalHistory?.trim() || null,
-        allergies: body.allergies?.trim() || null,
-        bloodType: body.bloodType?.trim() || null,
-        emergencyContact: body.emergencyContact?.trim() || null,
-        notes: body.notes?.trim() || null,
-        documents: JSON.stringify(body.documents || []),
+        studentNameAr: sanitized.studentNameAr,
+        studentNameEn: sanitized.studentNameEn || null,
+        birthDate: sanitized.birthDate,
+        gender: sanitized.gender,
+        gradeLevel: sanitized.gradeLevel,
+        nationality: sanitized.nationality,
+        parentName: sanitized.parentName,
+        parentRelation: sanitized.parentRelation,
+        parentPhone: sanitized.parentPhone,
+        parentEmail: sanitized.parentEmail,
+        parentOccupation: sanitized.parentOccupation || null,
+        city: sanitized.city,
+        district: sanitized.district || null,
+        streetAddress: sanitized.streetAddress || null,
+        medicalHistory: sanitized.medicalHistory || null,
+        allergies: sanitized.allergies || null,
+        bloodType: sanitized.bloodType || null,
+        emergencyContact: sanitized.emergencyContact || null,
+        notes: sanitized.notes || null,
+        documents: JSON.stringify(sanitized.documents),
         status: "UNDER_REVIEW",
       },
     });
@@ -108,7 +143,7 @@ export async function POST(req: NextRequest) {
         action: "APPLICATION_SUBMITTED",
         toStatus: "UNDER_REVIEW",
         message: `Application submitted via online portal. Application ID: ${applicationId}`,
-        actorEmail: body.parentEmail,
+        actorEmail: sanitized.parentEmail,
       },
     });
 

@@ -9,31 +9,37 @@ interface HeroProps {
   onTrack: () => void;
 }
 
-// Real photos from Unsplash (free for commercial use, no copyright)
+// Real photos from Unsplash (free for commercial use, no copyright) + kindergarten display image
 const HERO_IMAGES = [
+  {
+    url: "/kindergarten-display.jpg",
+    titleAr: "روضتنا الجميلة",
+    titleEn: "Our Beautiful Kindergarten",
+    color: "#f97316",
+  },
   {
     url: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1200&q=80&auto=format&fit=crop",
     titleAr: "فصول تفاعلية",
     titleEn: "Interactive Classrooms",
-    color: "#f97316",
+    color: "#22c55e",
   },
   {
     url: "https://images.unsplash.com/photo-1497486751825-1233686d5d80?w=1200&q=80&auto=format&fit=crop",
     titleAr: "تعلّم ممتع",
     titleEn: "Joyful Learning",
-    color: "#22c55e",
+    color: "#3b82f6",
   },
   {
     url: "https://images.unsplash.com/photo-1576267423445-b2e0074d68a4?w=1200&q=80&auto=format&fit=crop",
     titleAr: "رعاية متخصصة",
     titleEn: "Caring Guidance",
-    color: "#3b82f6",
+    color: "#a855f7",
   },
   {
     url: "https://images.unsplash.com/photo-1577896851231-70ef18881754?w=1200&q=80&auto=format&fit=crop",
     titleAr: "إبداع وإبداع",
     titleEn: "Creative Expression",
-    color: "#a855f7",
+    color: "#ec4899",
   },
 ];
 
