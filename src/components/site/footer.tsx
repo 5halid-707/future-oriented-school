@@ -4,7 +4,7 @@ import { Mail, MapPin, Phone, MessageCircle } from "lucide-react";
 import { useI18n } from "./i18n";
 
 export default function Footer({ onNavigate }: { onNavigate: (v: "home" | "apply" | "track") => void }) {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
 
   return (
     <footer className="bg-corporate text-white mt-auto">
@@ -115,8 +115,21 @@ export default function Footer({ onNavigate }: { onNavigate: (v: "home" | "apply
           </div>
         </div>
 
-        <div className="pt-6 border-t border-white/10 text-center">
+        <div className="pt-6 border-t border-white/10 text-center space-y-2">
           <p className="text-xs text-white/50">{t("footer.rights")}</p>
+          <p className="text-xs text-white/40 flex items-center justify-center gap-1.5 flex-wrap">
+            <span>{lang === "ar" ? "صُمّم بكل" : "Designed with"}</span>
+            <span className="text-red-400 inline-flex animate-pulse" style={{ animationDuration: "2s" }} aria-hidden>❤</span>
+            <span>{lang === "ar" ? "حب بواسطة" : "by"}</span>
+            <a
+              href="https://khalid-cyber-security.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-bold text-gold hover:text-white transition-colors underline decoration-gold/30 hover:decoration-white underline-offset-2"
+            >
+              خالد محمد
+            </a>
+          </p>
         </div>
       </div>
     </footer>
