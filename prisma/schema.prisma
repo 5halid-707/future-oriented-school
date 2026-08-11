@@ -1,0 +1,80 @@
+// Prisma schema for Future-Oriented School admission system
+// Uses PostgreSQL for Vercel serverless compatibility (Neon, Supabase, etc.)
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  name      String?
+  role      String   @default("ADMIN")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Application {
+  id            String   @id @default(cuid())
+  applicationId String   @unique // public-facing human-readable ID like FOSC-2026-XXXX
+  // Student info
+  studentNameAr   String
+  studentNameEn   String?
+  birthDate       String
+  gender          String // male | female
+  gradeLevel      String
+  nationality     String
+  // Parent info
+  parentName      String
+  parentRelation  String // father | mother | guardian
+  parentPhone     String
+  parentEmail     String
+  parentOccupation String?
+  // Address
+  city            String
+  district        String?
+  streetAddress   String?
+  // Medical
+  medicalHistory  String?
+  allergies       String?
+  bloodType       String?
+  emergencyContact String?
+  // Notes
+  notes           String?
+  // Status & automation
+  status          String   @default("UNDER_REVIEW") // UNDER_REVIEW | ACCEPTED | INTERVIEW_SCHEDULED | ENROLLED | REJECTED
+  interviewDate   String?
+  interviewNotes  String?
+  convertedToStudent Boolean @default(false)
+  studentProfileId String?
+  // Docs (stored as JSON array of {name, type, dataUrl})
+  documents       String   @default("[]")
+  // Audit
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  logs            ActivityLog[]
+}
+
+model ActivityLog {
+  id            String   @id @default(cuid())
+  applicationId String
+  application   Application @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+  action        String   // STATUS_CHANGED | APPLICATION_SUBMITTED | INTERVIEW_SCHEDULED | CONVERTED_TO_STUDENT
+  fromStatus    String?
+  toStatus      String?
+  message       String
+  actorEmail    String?
+  createdAt     DateTime @default(now())
+}
+
+model Setting {
+  id    String @id @default(cuid())
+  key   String @unique
+  value String
+}
