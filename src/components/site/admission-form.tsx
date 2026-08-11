@@ -282,9 +282,11 @@ export default function AdmissionForm({ onSuccess }: { onSuccess: (id: string) =
                       <SelectValue placeholder={lang === "ar" ? "اختر الصف" : "Select grade"} />
                     </SelectTrigger>
                     <SelectContent>
-                      {["1", "2", "3", "4", "5", "6"].map((g) => (
+                      {["تمهيدي", "KG1", "KG2", "KG3"].map((g) => (
                         <SelectItem key={g} value={g}>
-                          {lang === "ar" ? `الصف ${g}` : `Grade ${g}`}
+                          {lang === "ar"
+                            ? (g === "تمهيدي" ? "التمهيدي" : `روضة ${g.replace("KG", "")}`)
+                            : (g === "تمهيدي" ? "Pre-K" : g)}
                         </SelectItem>
                       ))}
                     </SelectContent>
@@ -520,7 +522,7 @@ export default function AdmissionForm({ onSuccess }: { onSuccess: (id: string) =
                   <ReviewItem label={t("form.studentNameEn")} value={form.studentNameEn || "-"} />
                   <ReviewItem label={t("form.birthDate")} value={form.birthDate} />
                   <ReviewItem label={t("form.gender")} value={form.gender === "male" ? t("form.gender.male") : t("form.gender.female")} />
-                  <ReviewItem label={t("form.gradeLevel")} value={form.gradeLevel ? (lang === "ar" ? `الصف ${form.gradeLevel}` : `Grade ${form.gradeLevel}`) : "-"} />
+                  <ReviewItem label={t("form.gradeLevel")} value={form.gradeLevel ? (lang === "ar" ? (form.gradeLevel === "تمهيدي" ? "التمهيدي" : `روضة ${form.gradeLevel.replace("KG", "")}`) : (form.gradeLevel === "تمهيدي" ? "Pre-K" : form.gradeLevel)) : "-"} />
                   <ReviewItem label={t("form.nationality")} value={form.nationality} />
                   <ReviewItem label={t("form.parentName")} value={form.parentName} />
                   <ReviewItem label={t("form.parentRelation")} value={form.parentRelation ? t(`form.parentRelation.${form.parentRelation}`) : "-"} />
@@ -550,7 +552,7 @@ export default function AdmissionForm({ onSuccess }: { onSuccess: (id: string) =
 
               <div className="bg-corporate/5 rounded-xl p-4 text-xs text-corporate/70">
                 {lang === "ar"
-                  ? "بالضغط على «إرسال الطلب» فإنك تؤكد صحة البيانات المُدخلة، وتوافق على معالجة طلبك وفقاً للسياسة التعليمية للمدرسة."
+                  ? "بالضغط على «إرسال الطلب» فإنك تؤكد صحة البيانات المُدخلة، وتوافق على معالجة طلبك وفقاً للسياسة التربوية للروضة."
                   : "By clicking \"Submit Application\", you confirm the accuracy of the entered data and agree to have your application processed according to the school's educational policy."}
               </div>
             </div>

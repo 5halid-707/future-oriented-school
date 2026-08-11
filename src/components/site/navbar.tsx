@@ -1,11 +1,12 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Menu, X, Globe, ShieldCheck } from "lucide-react";
+import { Menu, X, Globe, ShieldCheck, MessageCircle } from "lucide-react";
 import { useI18n } from "./i18n";
+import AnimatedLogo from "./animated-logo";
 
 interface NavbarProps {
-  onNavigate: (view: "home" | "apply" | "track") => void;
+  onNavigate: (view: "home" | "apply" | "track" | "chatbot") => void;
   currentView: string;
 }
 
@@ -32,12 +33,13 @@ export default function Navbar({ onNavigate, currentView }: NavbarProps) {
 
   const handleNav = (href: string) => {
     setOpen(false);
-    if (href === "apply" || href === "track" || href === "home") {
+    if (href === "apply" || href === "track" || href === "home" || href === "chatbot") {
       onNavigate(href as any);
     } else {
-      // scroll to section
-      const el = document.getElementById(href);
-      el?.scrollIntoView({ behavior: "smooth" });
+      onNavigate("home");
+      setTimeout(() => {
+        document.getElementById(href)?.scrollIntoView({ behavior: "smooth" });
+      }, 100);
     }
   };
 
@@ -50,18 +52,16 @@ export default function Navbar({ onNavigate, currentView }: NavbarProps) {
       }`}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 h-16 sm:h-18 flex items-center justify-between gap-4">
-        {/* Logo */}
+        {/* Animated 3D Logo */}
         <button
           onClick={() => handleNav("home")}
           className="flex items-center gap-3 group"
         >
-          <div className="relative w-10 h-10 sm:w-12 sm:h-12 rounded-xl overflow-hidden ring-2 ring-gold/30 group-hover:ring-gold transition-all group-hover:scale-105">
-            <img
-              src="/school-logo.jpeg"
-              alt={t("brand.name")}
-              className="w-full h-full object-cover"
-            />
-          </div>
+          <AnimatedLogo
+            size={44}
+            variant="navbar"
+            className="group-hover:scale-110 transition-transform duration-300"
+          />
           <div className="flex flex-col leading-tight text-right">
             <span className="font-bold text-sm sm:text-base text-corporate">
               {t("brand.short")}
@@ -88,6 +88,16 @@ export default function Navbar({ onNavigate, currentView }: NavbarProps) {
               </button>
             </li>
           ))}
+          {/* How can I serve you - chatbot button */}
+          <li>
+            <button
+              onClick={() => handleNav("chatbot")}
+              className="ms-2 flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-bold bg-gradient-to-r from-kid-orange to-kid-red text-white shadow-md hover:shadow-lg transition-all hover:scale-105"
+            >
+              <MessageCircle size={16} />
+              {lang === "ar" ? "كيف أقدر أخدمك؟" : "How can I help?"}
+            </button>
+          </li>
         </ul>
 
         <div className="flex items-center gap-2">
@@ -139,6 +149,15 @@ export default function Navbar({ onNavigate, currentView }: NavbarProps) {
                 </button>
               </li>
             ))}
+            <li>
+              <button
+                onClick={() => handleNav("chatbot")}
+                className="w-full flex items-center gap-1.5 px-3 py-2.5 rounded-lg text-sm font-bold bg-gradient-to-r from-kid-orange to-kid-red text-white"
+              >
+                <MessageCircle size={16} />
+                {lang === "ar" ? "كيف أقدر أخدمك؟" : "How can I help?"}
+              </button>
+            </li>
             <li>
               <a
                 href="/admin/login"

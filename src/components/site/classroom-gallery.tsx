@@ -91,7 +91,7 @@ export default function ClassroomGallery() {
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 text-kid-yellow px-4 py-2 rounded-full text-sm font-medium mb-4">
             <Sparkles size={16} />
-            {lang === "ar" ? "حياتنا المدرسية" : "School Life"}
+            {lang === "ar" ? "حياتنا في الروضة" : "Kindergarten Life"}
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-3 drop-shadow-lg">
             {lang === "ar" ? "أجواء تعليمية محفّزة" : "Inspiring Learning Environment"}
@@ -202,7 +202,7 @@ export default function ClassroomGallery() {
             <div>
               <p className="text-white/90 text-lg leading-relaxed mb-3">
                 {lang === "ar"
-                  ? "«رأيتُ تطوراً ملحوظاً في ابني منذ التحاقه بالمدرسة. أصبح أكثر ثقة بنفسه وشغفاً بالتعلّم. الأساتذة هنا لا يعلّمون فقط، بل يزرعون حب المعرفة في القلوب.»"
+                  ? "«رأيتُ تطوراً ملحوظاً في ابني منذ التحاقه بالروضة. أصبح أكثر ثقة بنفسه وشغفاً بالتعلّم. الأساتذة هنا لا يعلّمون فقط، بل يزرعون حب المعرفة في القلوب.»"
                   : "\"I have seen remarkable development in my son since he joined the school. He has become more confident and passionate about learning. The teachers here don't just teach — they plant the love of knowledge in hearts.\""}
               </p>
               <p className="text-kid-yellow font-bold text-sm">

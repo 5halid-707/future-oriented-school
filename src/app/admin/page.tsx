@@ -290,9 +290,11 @@ export default function AdminDashboard() {
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="all">{t("admin.table.filter.grade")}</SelectItem>
-                  {["1", "2", "3", "4", "5", "6"].map((g) => (
+                  {["تمهيدي", "KG1", "KG2", "KG3"].map((g) => (
                     <SelectItem key={g} value={g}>
-                      {lang === "ar" ? `الصف ${g}` : `Grade ${g}`}
+                      {lang === "ar"
+                        ? (g === "تمهيدي" ? "التمهيدي" : `روضة ${g.replace("KG", "")}`)
+                        : (g === "تمهيدي" ? "Pre-K" : g)}
                     </SelectItem>
                   ))}
                 </SelectContent>
@@ -350,7 +352,9 @@ export default function AdminDashboard() {
                       </td>
                       <td className="px-4 py-3 hidden sm:table-cell">
                         <span className="text-corporate/70">
-                          {lang === "ar" ? "الصف" : "Grade"} {app.gradeLevel}
+                          {lang === "ar"
+                            ? (app.gradeLevel === "تمهيدي" ? "التمهيدي" : `روضة ${app.gradeLevel.replace("KG", "")}`)
+                            : (app.gradeLevel === "تمهيدي" ? "Pre-K" : app.gradeLevel)}
                         </span>
                       </td>
                       <td className="px-4 py-3 hidden md:table-cell text-corporate/70 text-xs">
@@ -431,7 +435,7 @@ export default function AdminDashboard() {
                   <DetailItem label={t("form.studentNameEn")} value={selected.studentNameEn || "-"} />
                   <DetailItem label={t("form.birthDate")} value={selected.birthDate} />
                   <DetailItem label={t("form.gender")} value={selected.gender === "male" ? t("form.gender.male") : t("form.gender.female")} />
-                  <DetailItem label={t("form.gradeLevel")} value={`${lang === "ar" ? "الصف" : "Grade"} ${selected.gradeLevel}`} />
+                  <DetailItem label={t("form.gradeLevel")} value={selected.gradeLevel === "تمهيدي" ? (lang === "ar" ? "التمهيدي" : "Pre-K") : (lang === "ar" ? `روضة ${selected.gradeLevel.replace("KG", "")}` : selected.gradeLevel)} />
                   <DetailItem label={t("form.nationality")} value={selected.nationality} />
                 </Grid>
               </Section>

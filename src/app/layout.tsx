@@ -21,12 +21,12 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://Future-Oriented-Center.vercel.app"),
-  title: "مدرسة نحو المستقبل | Future-Oriented School — بوابة القبول والتسجيل الإلكتروني",
+  title: "روضة نحو المستقبل | Future-Oriented Kindergarten — بوابة القبول والتسجيل الإلكتروني",
   description:
-    "نظام قبول وتسجيل إلكتروني متكامل لمدرسة نحو المستقبل. قدّم طلبك وتابع حالته لحظة بلحظة. استمارة تسجيل ذكية، رفع مستندات، متابعة الطلب، وأتمتة إدارية كاملة.",
+    "نظام قبول وتسجيل إلكتروني متكامل لروضة نحو المستقبل. قدّم طلبك وتابع حالته لحظة بلحظة. استمارة تسجيل ذكية، رفع مستندات، متابعة الطلب، وأتمتة إدارية كاملة.",
   keywords: [
-    "مدرسة نحو المستقبل",
-    "Future-Oriented School",
+    "روضة نحو المستقبل",
+    "Future-Oriented Kindergarten",
     "التسجيل الإلكتروني",
     "Online Admission",
     "بوابة القبول",
@@ -36,25 +36,25 @@ export const metadata: Metadata = {
     "السعودية",
     "Saudi Arabia",
   ],
-  authors: [{ name: "Future-Oriented School" }],
-  creator: "Future-Oriented School",
-  publisher: "Future-Oriented School",
+  authors: [{ name: "Future-Oriented Kindergarten" }],
+  creator: "Future-Oriented Kindergarten",
+  publisher: "Future-Oriented Kindergarten",
   alternates: {
     canonical: "/",
     languages: { "ar-SA": "/", "en-US": "/" },
   },
   openGraph: {
-    title: "مدرسة نحو المستقبل | Future-Oriented School",
+    title: "روضة نحو المستقبل | Future-Oriented Kindergarten",
     description:
       "بوابة القبول والتسجيل الإلكتروني — نظام متكامل لتسجيل الطلاب ومتابعة حالات الطلب.",
     url: "https://Future-Oriented-Center.vercel.app",
-    siteName: "Future-Oriented School",
+    siteName: "Future-Oriented Kindergarten",
     images: [
       {
         url: "/school-logo.jpeg",
         width: 1170,
         height: 1111,
-        alt: "مدرسة نحو المستقبل - Future-Oriented School",
+        alt: "روضة نحو المستقبل - Future-Oriented Kindergarten",
       },
     ],
     locale: "ar_SA",
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "مدرسة نحو المستقبل | Future-Oriented School",
+    title: "روضة نحو المستقبل | Future-Oriented Kindergarten",
     description: "بوابة القبول والتسجيل الإلكتروني",
     images: ["/school-logo.jpeg"],
   },

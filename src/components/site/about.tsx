@@ -7,9 +7,9 @@ export default function About() {
   const { t, lang } = useI18n();
 
   const features = [
-    { icon: BookOpen, title: t("about.feature1.title"), body: t("about.feature1.body"), color: "from-kid-blue to-kid-cyan" },
-    { icon: Users, title: t("about.feature2.title"), body: t("about.feature2.body"), color: "from-kid-orange to-kid-red" },
-    { icon: Building2, title: t("about.feature3.title"), body: t("about.feature3.body"), color: "from-kid-green to-emerald-brand" },
+    { icon: BookOpen, title: t("about.feature1.title"), body: t("about.feature1.body"), color: "from-kid-yellow to-kid-orange" },
+    { icon: Users, title: t("about.feature2.title"), body: t("about.feature2.body"), color: "from-kid-yellow to-kid-orange" },
+    { icon: Building2, title: t("about.feature3.title"), body: t("about.feature3.body"), color: "from-kid-yellow to-kid-orange" },
   ];
 
   return (

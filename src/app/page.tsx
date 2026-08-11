@@ -11,8 +11,10 @@ import AdmissionForm from "@/components/site/admission-form";
 import TrackApplication from "@/components/site/track-application";
 import SuccessScreen from "@/components/site/success-screen";
 import Footer from "@/components/site/footer";
+import WhatsAppButton from "@/components/site/whatsapp-button";
+import Chatbot from "@/components/site/chatbot";
 
-type View = "home" | "apply" | "track" | "success";
+type View = "home" | "apply" | "track" | "success" | "chatbot";
 
 export default function HomePage() {
   const [view, setView] = useState<View>("home");
@@ -33,14 +35,15 @@ export default function HomePage() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const handleChatbot = () => {
+    setView("chatbot");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   const handleSuccess = (id: string) => {
     setApplicationId(id);
     setView("success");
     window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
-  const scrollToContact = () => {
-    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -49,6 +52,7 @@ export default function HomePage() {
         onNavigate={(v) => {
           if (v === "apply") handleApply();
           else if (v === "track") handleTrack();
+          else if (v === "chatbot") handleChatbot();
           else if (v === "home") handleHome();
           else {
             // For section-based links (about, features, contact), go home then scroll
@@ -85,6 +89,16 @@ export default function HomePage() {
           <TrackApplication onApplyNew={handleApply} />
         )}
 
+        {view === "chatbot" && (
+          <Chatbot
+            onNavigate={(v) => {
+              if (v === "apply") handleApply();
+              else if (v === "track") handleTrack();
+              else handleHome();
+            }}
+          />
+        )}
+
         {view === "success" && (
           <SuccessScreen
             applicationId={applicationId}
@@ -111,6 +125,9 @@ export default function HomePage() {
           }
         }}
       />
+
+      {/* Floating WhatsApp button - visible on all views except chatbot */}
+      {view !== "chatbot" && <WhatsAppButton phone="+966 53 209 3435" />}
     </div>
   );
 }
@@ -118,20 +135,19 @@ export default function HomePage() {
 function ApplyCTA({ onApply }: { onApply: () => void }) {
   return (
     <section className="py-20 bg-gradient-to-br from-corporate via-corporate-dark to-corporate text-white relative overflow-hidden">
-      {/* Decorative shapes */}
-      <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-gold/10 blur-3xl" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 rounded-full bg-emerald-brand/15 blur-3xl" />
+      <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-kid-yellow/15 blur-3xl animate-float" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 rounded-full bg-kid-pink/15 blur-3xl animate-float" style={{ animationDelay: "1s" }} />
 
       <div className="relative mx-auto max-w-5xl px-4 sm:px-6 text-center">
-        <h2 className="text-3xl sm:text-4xl font-extrabold mb-4">
+        <h2 className="text-3xl sm:text-4xl font-extrabold mb-4 drop-shadow-lg">
           جاهز لبدء رحلة طفلك التعليمية؟
         </h2>
         <p className="text-white/80 text-lg mb-8 max-w-2xl mx-auto">
-          انضم إلى عائلة مدرسة نحو المستقبل اليوم. عملية التسجيل بسيطة وسريعة بالكامل عبر الإنترنت.
+          انضم إلى عائلة روضة نحو المستقبل اليوم. عملية التسجيل بسيطة وسريعة بالكامل عبر الإنترنت.
         </p>
         <button
           onClick={onApply}
-          className="inline-flex items-center gap-2 bg-gold hover:bg-gold-dark text-white font-bold px-8 py-4 rounded-xl shadow-gold transition-all hover:scale-105"
+          className="inline-flex items-center gap-2 bg-kid-orange hover:bg-kid-red text-white font-bold px-8 py-4 rounded-xl shadow-3d-pop transition-all hover:scale-105"
         >
           ابدأ التسجيل الآن
         </button>

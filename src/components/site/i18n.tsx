@@ -8,13 +8,13 @@ type Dict = Record<string, { ar: string; en: string }>;
 
 const dict: Dict = {
   // Brand
-  "brand.name": { ar: "مدرسة نحو المستقبل", en: "Future-Oriented School" },
+  "brand.name": { ar: "روضة نحو المستقبل", en: "Future-Oriented Kindergarten" },
   "brand.short": { ar: "نحو المستقبل", en: "Future-Oriented" },
   "brand.tagline": { ar: "نُعِدّ جيلاً يقود الغد", en: "Preparing a generation to lead tomorrow" },
 
   // Nav
   "nav.home": { ar: "الرئيسية", en: "Home" },
-  "nav.about": { ar: "عن المدرسة", en: "About" },
+  "nav.about": { ar: "عن الروضة", en: "About" },
   "nav.features": { ar: "لماذا نحن", en: "Why Us" },
   "nav.admission": { ar: "التسجيل", en: "Admission" },
   "nav.track": { ar: "متابعة الطلب", en: "Track Application" },
@@ -39,7 +39,7 @@ const dict: Dict = {
 
   // About
   "about.eyebrow": { ar: "من نحن", en: "Who We Are" },
-  "about.title": { ar: "مدرسة نحو المستقبل — صرح تعليمي عالمي", en: "Future-Oriented School — A World-Class Institution" },
+  "about.title": { ar: "روضة نحو المستقبل — صرح تربوي عالمي", en: "Future-Oriented Kindergarten — A World-Class Institution" },
   "about.body": {
     ar: "نؤمن بأن كل طفل يستحق فرصة تعليمية استثنائية. نمزج بين المنهج السعودي المعتمد وأحدث الأساليب التربوية العالمية لنُخرج جيلاً مبدعاً واثقاً قادراً على قيادة المستقبل. بيئتنا التعليمية محفّزة وآمنة، يديرها نخبة من المعلمين المعتمدين، مع بنية تحتية تقنية متطورة ومرافق عالمية المستوى.",
     en: "We believe every child deserves an exceptional education. We blend the accredited Saudi curriculum with the latest international pedagogical methods to graduate a creative, confident generation ready to lead the future. Our learning environment is stimulating and safe, led by elite certified teachers, with cutting-edge technology infrastructure and world-class facilities.",
@@ -91,7 +91,7 @@ const dict: Dict = {
   "form.gender": { ar: "الجنس", en: "Gender" },
   "form.gender.male": { ar: "ذكر", en: "Male" },
   "form.gender.female": { ar: "أنثى", en: "Female" },
-  "form.gradeLevel": { ar: "الصف المراد التسجيل فيه", en: "Grade Level" },
+  "form.gradeLevel": { ar: "المستوى المراد التسجيل فيه", en: "Kindergarten Level" },
   "form.nationality": { ar: "الجنسية", en: "Nationality" },
 
   "form.parentName": { ar: "اسم ولي الأمر", en: "Parent Name" },
@@ -145,11 +145,11 @@ const dict: Dict = {
   "track.interview": { ar: "موعد المقابلة", en: "Interview Date" },
 
   // Footer
-  "footer.about": { ar: "مدرسة نحو المستقبل — صرح تعليمي عالمي يُعِدّ جيلاً مبدعاً واثقاً.", en: "Future-Oriented School — a world-class institution preparing a creative, confident generation." },
+  "footer.about": { ar: "روضة نحو المستقبل — صرح تربوي عالمي يُعِدّ جيلاً مبدعاً واثقاً.", en: "Future-Oriented Kindergarten — a world-class institution preparing a creative, confident generation." },
   "footer.quicklinks": { ar: "روابط سريعة", en: "Quick Links" },
   "footer.contact": { ar: "تواصل معنا", en: "Contact" },
   "footer.follow": { ar: "تابعنا على", en: "Follow Us" },
-  "footer.rights": { ar: "© 2026 مدرسة نحو المستقبل. جميع الحقوق محفوظة.", en: "© 2026 Future-Oriented School. All rights reserved." },
+  "footer.rights": { ar: "© 2026 روضة نحو المستقبل. جميع الحقوق محفوظة.", en: "© 2026 Future-Oriented Kindergarten. All rights reserved." },
   "footer.email": { ar: "البريد الإلكتروني", en: "Email" },
 
   // Admin login
@@ -175,10 +175,10 @@ const dict: Dict = {
 
   "admin.table.title": { ar: "إدارة الطلبات", en: "Applications Management" },
   "admin.table.search": { ar: "بحث برقم الطلب أو الاسم...", en: "Search by ID or name..." },
-  "admin.table.filter.grade": { ar: "كل الصفوف", en: "All Grades" },
+  "admin.table.filter.grade": { ar: "كل المستويات", en: "All Levels" },
   "admin.table.filter.status": { ar: "كل الحالات", en: "All Status" },
   "admin.table.applicant": { ar: "مقدم الطلب", en: "Applicant" },
-  "admin.table.grade": { ar: "الصف", en: "Grade" },
+  "admin.table.grade": { ar: "المستوى", en: "Level" },
   "admin.table.status": { ar: "الحالة", en: "Status" },
   "admin.table.date": { ar: "التاريخ", en: "Date" },
   "admin.table.actions": { ar: "إجراءات", en: "Actions" },
@@ -203,7 +203,7 @@ const dict: Dict = {
   "admin.detail.download": { ar: "تحميل", en: "Download" },
 
   "admin.automation.title": { ar: "أتمتة تلقائية", en: "Automated Process" },
-  "admin.automation.desc": { ar: "يتم تحويل الطلبات المقبولة تلقائياً إلى ملفات طلاب رسمية في قاعدة بيانات المدرسة دون الحاجة لإعادة إدخال البيانات يدوياً.", en: "Approved applications are automatically converted to official student profiles in the school database without manual re-entry." },
+  "admin.automation.desc": { ar: "يتم تحويل الطلبات المقبولة تلقائياً إلى ملفات طلاب رسمية في قاعدة بيانات الروضة دون الحاجة لإعادة إدخال البيانات يدوياً.", en: "Approved applications are automatically converted to official student profiles in the kindergarten database without manual re-entry." },
 };
 
 interface I18nContextValue {

@@ -7,12 +7,12 @@ export default function Features() {
   const { t } = useI18n();
 
   const features = [
-    { icon: FileText, title: t("features.f1.title"), body: t("features.f1.body"), color: "from-kid-blue to-kid-cyan", bgColor: "bg-kid-blue/10", iconColor: "text-kid-blue" },
-    { icon: Upload, title: t("features.f2.title"), body: t("features.f2.body"), color: "from-kid-orange to-kid-red", bgColor: "bg-kid-orange/10", iconColor: "text-kid-orange" },
-    { icon: Activity, title: t("features.f3.title"), body: t("features.f3.body"), color: "from-kid-green to-emerald-brand", bgColor: "bg-kid-green/10", iconColor: "text-kid-green" },
-    { icon: RefreshCw, title: t("features.f4.title"), body: t("features.f4.body"), color: "from-kid-purple to-kid-pink", bgColor: "bg-kid-purple/10", iconColor: "text-kid-purple" },
+    { icon: FileText, title: t("features.f1.title"), body: t("features.f1.body"), color: "from-kid-yellow to-kid-orange", bgColor: "bg-kid-yellow/10", iconColor: "text-kid-yellow" },
+    { icon: Upload, title: t("features.f2.title"), body: t("features.f2.body"), color: "from-kid-yellow to-kid-orange", bgColor: "bg-kid-yellow/10", iconColor: "text-kid-yellow" },
+    { icon: Activity, title: t("features.f3.title"), body: t("features.f3.body"), color: "from-kid-yellow to-kid-orange", bgColor: "bg-kid-yellow/10", iconColor: "text-kid-yellow" },
+    { icon: RefreshCw, title: t("features.f4.title"), body: t("features.f4.body"), color: "from-kid-yellow to-kid-orange", bgColor: "bg-kid-yellow/10", iconColor: "text-kid-yellow" },
     { icon: Bell, title: t("features.f5.title"), body: t("features.f5.body"), color: "from-kid-yellow to-kid-orange", bgColor: "bg-kid-yellow/10", iconColor: "text-kid-yellow" },
-    { icon: Languages, title: t("features.f6.title"), body: t("features.f6.body"), color: "from-kid-pink to-kid-purple", bgColor: "bg-kid-pink/10", iconColor: "text-kid-pink" },
+    { icon: Languages, title: t("features.f6.title"), body: t("features.f6.body"), color: "from-kid-yellow to-kid-orange", bgColor: "bg-kid-yellow/10", iconColor: "text-kid-yellow" },
   ];
 
   return (

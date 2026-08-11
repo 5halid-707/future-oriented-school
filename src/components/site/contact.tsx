@@ -39,7 +39,7 @@ export default function Contact() {
           </h2>
           <p className="text-corporate/70 text-lg max-w-2xl mx-auto">
             {lang === "ar"
-              ? "لا تتردد في التواصل معنا لأي استفسار حول القبول أو المناهج أو زيارة المدرسة."
+              ? "لا تتردد في التواصل معنا لأي استفسار حول القبول أو المناهج أو زيارة الروضة."
               : "Don't hesitate to reach out with any questions about admissions, curriculum, or school visits."}
           </p>
         </div>
@@ -147,7 +147,7 @@ export default function Contact() {
                 href="mailto:n7walmostqbl@gmail.com"
                 className="bg-white rounded-2xl border border-corporate/10 shadow-sm p-5 hover:shadow-corporate transition-all hover:-translate-y-1 group"
               >
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-corporate to-corporate-light flex items-center justify-center text-white mb-3 group-hover:scale-110 transition-transform">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-kid-yellow to-kid-orange flex items-center justify-center text-white mb-3 group-hover:scale-110 transition-transform shadow-3d-pop">
                   <Mail size={22} />
                 </div>
                 <p className="text-xs text-corporate/60 mb-1">{t("footer.email")}</p>
@@ -155,23 +155,23 @@ export default function Contact() {
               </a>
 
               <a
-                href="https://wa.me/966575015019"
+                href="https://wa.me/966532093435"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-white rounded-2xl border border-corporate/10 shadow-sm p-5 hover:shadow-corporate transition-all hover:-translate-y-1 group"
               >
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-brand to-emerald-600 flex items-center justify-center text-white mb-3 group-hover:scale-110 transition-transform">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-kid-yellow to-kid-orange flex items-center justify-center text-white mb-3 group-hover:scale-110 transition-transform shadow-3d-pop">
                   <Phone size={22} />
                 </div>
                 <p className="text-xs text-corporate/60 mb-1">{lang === "ar" ? "اتصل بنا" : "Call Us"}</p>
-                <p className="font-bold text-sm text-corporate" dir="ltr">+966 57 501 5019</p>
+                <p className="font-bold text-sm text-corporate" dir="ltr">+966 53 209 3435</p>
               </a>
             </div>
 
             {/* Working hours */}
             <div className="bg-gradient-to-br from-corporate to-corporate-dark text-white rounded-2xl p-6">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-xl bg-gold/20 flex items-center justify-center text-gold">
+                <div className="w-10 h-10 rounded-xl bg-kid-yellow/20 flex items-center justify-center text-kid-yellow">
                   <Clock size={20} />
                 </div>
                 <h3 className="font-bold text-lg">
@@ -197,7 +197,7 @@ export default function Contact() {
             {/* Map */}
             <div className="bg-white rounded-2xl border border-corporate/10 shadow-corporate overflow-hidden">
               <div className="p-5 border-b border-corporate/10 flex items-start gap-3">
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-brand to-corporate flex items-center justify-center text-white shrink-0">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-kid-yellow to-kid-orange flex items-center justify-center text-white shrink-0">
                   <MapPin size={20} />
                 </div>
                 <div className="flex-1">
@@ -227,7 +227,7 @@ export default function Contact() {
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title={lang === "ar" ? "موقع مدرسة نحو المستقبل - مكة المكرمة" : "Future-Oriented School Location - Makkah"}
+                  title={lang === "ar" ? "موقع روضة نحو المستقبل - مكة المكرمة" : "Future-Oriented Kindergarten Location - Makkah"}
                 />
               </div>
             </div>
