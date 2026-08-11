@@ -49,6 +49,16 @@
   --color-gold: var(--gold);
   --color-gold-dark: var(--gold-dark);
   --color-emerald-brand: var(--emerald-brand);
+
+  /* Kid-friendly palette - registered for Tailwind v4 gradient utilities */
+  --color-kid-red: var(--kid-red);
+  --color-kid-orange: var(--kid-orange);
+  --color-kid-yellow: var(--kid-yellow);
+  --color-kid-green: var(--kid-green);
+  --color-kid-blue: var(--kid-blue);
+  --color-kid-purple: var(--kid-purple);
+  --color-kid-pink: var(--kid-pink);
+  --color-kid-cyan: var(--kid-cyan);
 }
 
 :root {

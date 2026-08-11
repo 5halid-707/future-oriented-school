@@ -158,8 +158,8 @@ export default function Hero({ onApply, onTrack }: HeroProps) {
                 <div className="absolute -inset-2 rounded-3xl border-2 border-white/30 pointer-events-none" />
               </div>
 
-              {/* Floating logo badge */}
-              <div className="absolute -top-4 -right-4 w-20 h-20 rounded-2xl overflow-hidden ring-4 ring-white shadow-3d-pop animate-float">
+              {/* Floating logo badge - bigger and clearer */}
+              <div className="absolute -top-6 -right-6 w-28 h-28 rounded-2xl overflow-hidden ring-4 ring-white shadow-2xl animate-float bg-white">
                 <img src="/school-logo.jpeg" alt={t("brand.name")} className="w-full h-full object-cover" />
               </div>
 
