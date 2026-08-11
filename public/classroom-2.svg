@@ -1,0 +1,150 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7c3aed"/>
+      <stop offset="50%" stop-color="#a855f7"/>
+      <stop offset="100%" stop-color="#ec4899"/>
+    </linearGradient>
+    <radialGradient id="light2" cx="30%" cy="20%" r="70%">
+      <stop offset="0%" stop-color="#fef3c7" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#fef3c7" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="carpet2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#9333ea"/>
+      <stop offset="100%" stop-color="#7e22ce"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="500" fill="url(#bg2)"/>
+  <rect width="800" height="500" fill="url(#light2)"/>
+
+  <!-- Arabic calligraphy on wall -->
+  <g transform="translate(400, 70)">
+    <rect x="-100" y="-25" width="200" height="50" rx="4" fill="#fef3c7" opacity="0.95"/>
+    <text x="0" y="8" fill="#7c3aed" font-family="Cairo, sans-serif" font-size="24" font-weight="900" text-anchor="middle">بسم الله</text>
+  </g>
+
+  <!-- Library shelf with Quran and books -->
+  <g transform="translate(80, 150)">
+    <rect x="0" y="0" width="140" height="180" fill="#92400e" rx="4"/>
+    <rect x="8" y="10" width="124" height="50" fill="#451a03"/>
+    <rect x="8" y="70" width="124" height="50" fill="#451a03"/>
+    <rect x="8" y="130" width="124" height="44" fill="#451a03"/>
+    <!-- Books row 1 -->
+    <rect x="14" y="14" width="12" height="42" fill="#06b6d4" rx="1"/>
+    <rect x="28" y="14" width="12" height="42" fill="#10b981" rx="1"/>
+    <rect x="42" y="14" width="12" height="42" fill="#f59e0b" rx="1"/>
+    <rect x="56" y="14" width="20" height="42" fill="#dc2626" rx="1"/>
+    <text x="66" y="40" fill="#fef3c7" font-family="Cairo, sans-serif" font-size="8" text-anchor="middle">القرآن</text>
+    <rect x="80" y="14" width="12" height="42" fill="#7c3aed" rx="1"/>
+    <rect x="94" y="14" width="12" height="42" fill="#ec4899" rx="1"/>
+    <rect x="108" y="14" width="12" height="42" fill="#0ea5e9" rx="1"/>
+    <!-- Books row 2 -->
+    <rect x="14" y="74" width="12" height="42" fill="#f59e0b" rx="1"/>
+    <rect x="28" y="74" width="12" height="42" fill="#10b981" rx="1"/>
+    <rect x="42" y="74" width="12" height="42" fill="#dc2626" rx="1"/>
+    <rect x="56" y="74" width="12" height="42" fill="#7c3aed" rx="1"/>
+    <rect x="70" y="74" width="12" height="42" fill="#ec4899" rx="1"/>
+    <rect x="84" y="74" width="12" height="42" fill="#0ea5e9" rx="1"/>
+    <rect x="98" y="74" width="12" height="42" fill="#06b6d4" rx="1"/>
+    <rect x="112" y="74" width="12" height="42" fill="#10b981" rx="1"/>
+    <!-- Books row 3 -->
+    <rect x="14" y="134" width="12" height="36" fill="#0ea5e9" rx="1"/>
+    <rect x="28" y="134" width="12" height="36" fill="#7c3aed" rx="1"/>
+    <rect x="42" y="134" width="20" height="36" fill="#f59e0b" rx="1"/>
+    <rect x="64" y="134" width="12" height="36" fill="#dc2626" rx="1"/>
+    <rect x="78" y="134" width="12" height="36" fill="#10b981" rx="1"/>
+    <rect x="92" y="134" width="20" height="36" fill="#06b6d4" rx="1"/>
+    <rect x="114" y="134" width="10" height="36" fill="#ec4899" rx="1"/>
+  </g>
+
+  <!-- Carpet circle for students to sit on -->
+  <ellipse cx="450" cy="400" rx="280" ry="60" fill="url(#carpet2)" opacity="0.8"/>
+  <ellipse cx="450" cy="395" rx="260" ry="50" fill="none" stroke="#fbbf24" stroke-width="2" opacity="0.5" stroke-dasharray="6 4"/>
+
+  <!-- Male teacher with ghutra (Gulf) sitting with students -->
+  <g transform="translate(450, 280)">
+    <!-- Body (white thobe) -->
+    <path d="M -45 130 Q -55 60 -25 40 L 25 40 Q 55 60 45 130 Z" fill="#fff"/>
+    <!-- Shoulders -->
+    <ellipse cx="0" cy="50" rx="35" ry="15" fill="#f8fafc"/>
+    <!-- Ghutra -->
+    <path d="M -32 18 Q -38 -5 0 -10 Q 38 -5 32 18 Q 22 8 0 8 Q -22 8 -32 18 Z" fill="#fff"/>
+    <!-- Agal -->
+    <path d="M -30 5 Q 0 -5 30 5" fill="none" stroke="#000" stroke-width="2"/>
+    <!-- Face -->
+    <ellipse cx="0" cy="20" rx="20" ry="22" fill="#fcd9b6"/>
+    <!-- Beard -->
+    <path d="M -16 28 Q 0 45 16 28" fill="#1f2937" opacity="0.7"/>
+    <!-- Eyes -->
+    <path d="M -10 18 Q -7 16 -4 18" fill="none" stroke="#1f2937" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M 4 18 Q 7 16 10 18" fill="none" stroke="#1f2937" stroke-width="1.5" stroke-linecap="round"/>
+    <!-- Smile -->
+    <path d="M -6 28 Q 0 32 6 28" fill="none" stroke="#92400e" stroke-width="1.5" stroke-linecap="round"/>
+    <!-- Hands holding Quran -->
+    <ellipse cx="-30" cy="100" rx="10" ry="14" fill="#fcd9b6" transform="rotate(-15 -30 100)"/>
+    <ellipse cx="30" cy="100" rx="10" ry="14" fill="#fcd9b6" transform="rotate(15 30 100)"/>
+    <rect x="-25" y="95" width="50" height="35" fill="#064e3b" rx="3" stroke="#92400e" stroke-width="2"/>
+    <rect x="-22" y="98" width="44" height="29" fill="#fef3c7" rx="2"/>
+    <text x="0" y="118" fill="#064e3b" font-family="Cairo, sans-serif" font-size="10" text-anchor="middle">القرآن</text>
+  </g>
+
+  <!-- Student girl (hijab) listening - left -->
+  <g transform="translate(290, 360)">
+    <ellipse cx="0" cy="0" rx="35" ry="40" fill="#7c3aed"/>
+    <ellipse cx="0" cy="0" rx="35" ry="40" fill="none" stroke="#5b21b6" stroke-width="3"/>
+    <ellipse cx="0" cy="5" rx="20" ry="22" fill="#fcd9b6"/>
+    <ellipse cx="0" cy="-8" rx="22" ry="20" fill="#5b21b6"/>
+    <circle cx="-5" cy="3" r="1.5" fill="#1f2937"/>
+    <circle cx="5" cy="3" r="1.5" fill="#1f2937"/>
+    <path d="M -4 12 Q 0 15 4 12" fill="none" stroke="#92400e" stroke-width="1.2" stroke-linecap="round"/>
+    <!-- Body -->
+    <path d="M -28 40 Q -32 20 -10 5 L 10 5 Q 32 20 28 40 Z" fill="#7c3aed"/>
+  </g>
+
+  <!-- Student boy (ghutra) listening - right -->
+  <g transform="translate(610, 360)">
+    <ellipse cx="0" cy="0" rx="35" ry="40" fill="#10b981"/>
+    <ellipse cx="0" cy="0" rx="35" ry="40" fill="none" stroke="#047857" stroke-width="3"/>
+    <ellipse cx="0" cy="5" rx="20" ry="22" fill="#fcd9b6"/>
+    <path d="M -22 -3 Q -25 -22 0 -25 Q 25 -22 22 -3 Q 15 -10 0 -10 Q -15 -10 -22 -3 Z" fill="#fff"/>
+    <path d="M -20 -13 Q 0 -20 20 -13" fill="none" stroke="#000" stroke-width="1.5"/>
+    <circle cx="-5" cy="3" r="1.5" fill="#1f2937"/>
+    <circle cx="5" cy="3" r="1.5" fill="#1f2937"/>
+    <path d="M -4 12 Q 0 15 4 12" fill="none" stroke="#92400e" stroke-width="1.2" stroke-linecap="round"/>
+    <!-- Body -->
+    <path d="M -28 40 Q -32 20 -10 5 L 10 5 Q 32 20 28 40 Z" fill="#fff"/>
+  </g>
+
+  <!-- Little girl in front (center) -->
+  <g transform="translate(450, 410)">
+    <ellipse cx="0" cy="-30" rx="20" ry="22" fill="#fcd9b6"/>
+    <ellipse cx="0" cy="-30" rx="20" ry="22" fill="none" stroke="#fb923c" stroke-width="1" opacity="0.5"/>
+    <ellipse cx="0" cy="-40" rx="22" ry="20" fill="#f97316"/>
+    <path d="M -22 -32 Q -25 -22 -20 -15" fill="#f97316" stroke="none"/>
+    <path d="M 22 -32 Q 25 -22 20 -15" fill="#f97316" stroke="none"/>
+    <circle cx="-5" cy="-30" r="1.5" fill="#1f2937"/>
+    <circle cx="5" cy="-30" r="1.5" fill="#1f2937"/>
+    <path d="M -4 -22 Q 0 -19 4 -22" fill="none" stroke="#92400e" stroke-width="1.2" stroke-linecap="round"/>
+    <!-- Body dress -->
+    <path d="M -25 30 Q -30 0 -15 -8 L 15 -8 Q 30 0 25 30 Z" fill="#f97316"/>
+    <ellipse cx="0" cy="-8" rx="20" ry="5" fill="#fb923c"/>
+  </g>
+
+  <!-- Floating decorative elements -->
+  <circle cx="650" cy="80" r="4" fill="#fde68a" opacity="0.7">
+    <animate attributeName="cy" values="80;60;80" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.7;1;0.7" dur="4s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="200" cy="100" r="3" fill="#fef3c7" opacity="0.6">
+    <animate attributeName="cy" values="100;85;100" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="380" cy="200" r="2" fill="#fde68a" opacity="0.5">
+    <animate attributeName="cy" values="200;185;200" dur="3.5s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Sun rays from window -->
+  <g opacity="0.2">
+    <polygon points="660,80 700,80 760,500 720,500" fill="#fef3c7"/>
+  </g>
+</svg>

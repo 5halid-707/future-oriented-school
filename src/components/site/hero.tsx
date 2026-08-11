@@ -93,7 +93,7 @@ export default function Hero({ onApply, onTrack }: HeroProps) {
                   ✓ CPD Accredited
                 </div>
                 <div className="absolute -bottom-2 -left-2 bg-white text-corporate text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
-                  {lang === "ar" ? "وزارة التعليم" : "MoE Approved"}
+                  {lang === "ar" ? "جمعية ترتيل" : "Tarteel Association"}
                 </div>
               </div>
             </div>
